@@ -1,86 +1,112 @@
-  
-  
-  <div style="text-align:center;">
-  <h2>Text Case Converter</h2>
-  <input type="text" id="inputArea" style="width:90%;max-width:500px;height:120px;padding:10px;font-size:16px;border-radius:8px;border:1px solid #ccc;" placeholder="Enter text here..."><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text Case Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <button onclick="toUpper()" style="margin:5px;padding:10px 15px;background:#007bff;color:#fff;border:none;border-radius:8px;">UPPERCASE</button>
-  <button onclick="toLower()" style="margin:5px;padding:10px 15px;background:#007bff;color:#fff;border:none;border-radius:8px;">lowercase</button>
-  <button onclick="toSentence()" style="margin:5px;padding:10px 15px;background:#007bff;color:#fff;border:none;border-radius:8px;">Sentence case</button>
-  <button onclick="toCapital()" style="margin:5px;padding:10px 15px;background:#007bff;color:#fff;border:none;border-radius:8px;">Capitalized Case</button>
-  <button onclick="clearText()" style="margin:5px;padding:10px 15px;background:#007bff;color:#fff;border:none;border-radius:8px;">Clear</button>
-</div>
+  <!-- Favicon -->
+  <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
 
-<script type="text/javascript">
-//<![CDATA[
-function toUpper() {
-  var t = document.getElementById("inputArea");
-  t.value = t.value.toUpperCase();
-}
-
-function toLower() {
-  var t = document.getElementById("inputArea");
-  t.value = t.value.toLowerCase();
-}
-
-function toSentence() {
-  var t = document.getElementById("inputArea");
-  let txt = t.value.toLowerCase();
-  t.value = txt.charAt(0).toUpperCase() + txt.slice(1);
-}
-
-function toCapital() {
-  var t = document.getElementById("inputArea");
-  let words = t.value.toLowerCase().split(" ");
-  for (let i = 0; i < words.length; i++) {
-    if (words[i]) {
-      words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
     }
-  }
-  t.value = words.join(" ");
-}
 
-function clearText() {
-  var t = document.getElementById("inputArea");
-  t.value = "";
-}
-//]]>
-</script>
+    h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
 
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f0f8ff;
-    padding: 20px;
-    text-align: center;
-  }
+    input[type="text"] {
+      width: 90%;
+      max-width: 500px;
+      height: 120px;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
 
-  input[type="text"] {
-    width: 90%;
-    max-width: 500px;
-    height: 120px;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-  }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 14px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-  button {
-    margin: 5px;
-    padding: 10px 15px;
-    font-size: 14px;
-    border: none;
-    background: #007bff;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-  }
+    button:hover {
+      background: #0056b3;
+    }
 
-  button:hover {
-    background: #0056b3;
-  }
-</style>
+    @media (max-width: 600px) {
+      input[type="text"] {
+        height: 100px;
+        font-size: 14px;
+      }
 
-  
-  
+      button {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Text Case Converter</h2>
+  <input type="text" id="inputArea" placeholder="Enter text here..."><br>
+
+  <button onclick="toUpper()">UPPERCASE</button>
+  <button onclick="toLower()">lowercase</button>
+  <button onclick="toSentence()">Sentence case</button>
+  <button onclick="toCapital()">Capitalized Case</button>
+  <button onclick="clearText()">Clear</button>
+
+  <script>
+    function toUpper() {
+      var t = document.getElementById("inputArea");
+      t.value = t.value.toUpperCase();
+    }
+
+    function toLower() {
+      var t = document.getElementById("inputArea");
+      t.value = t.value.toLowerCase();
+    }
+
+    function toSentence() {
+      var t = document.getElementById("inputArea");
+      let txt = t.value.toLowerCase();
+      t.value = txt.charAt(0).toUpperCase() + txt.slice(1);
+    }
+
+    function toCapital() {
+      var t = document.getElementById("inputArea");
+      let words = t.value.toLowerCase().split(" ");
+      for (let i = 0; i < words.length; i++) {
+        if (words[i]) {
+          words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+        }
+      }
+      t.value = words.join(" ");
+    }
+
+    function clearText() {
+      var t = document.getElementById("inputArea");
+      t.value = "";
+    }
+  </script>
+
+</body>
+</html>
